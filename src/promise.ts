@@ -1,12 +1,10 @@
-const example = new Promise<number>((resolve, reject) => {
-  // resolve(123);
-  reject(new Error('failed'));
+const first = new Promise((resolve, reject) => {
+  resolve(123);
 });
 
-example.then(value => {
-  console.log('then', value);
+const second = first.then(val => {
+  // body function of second
+  return val;
 });
 
-example.catch(error => {
-  console.log('catch', error);
-});
+console.log(first === second);
